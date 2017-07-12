@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <h1 align="center">{{title}}</h1>
+        <form method='post'>
+        <table>
+            <tr>
+                <td><h3>Title:</h3></td>
+            </tr>
+            <tr>
+                <td><input type="text" name ='blog_title' id='blog_title'/></td>
+            </tr>
+            <tr>
+                <td><h3>Your New Blog:</h3></td>
+            <tr>
+                <td><textarea rows="10" cols="80" id="body" name="body" ></textarea></td>
+            </tr>
+        </table>
+            <input type="submit" value='Add Entry'/>
+        </form> 
+        
+{% endblock %}
