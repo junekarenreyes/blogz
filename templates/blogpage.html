@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+{% if post.id == post.id %}
+    <h1 align="center" class="blogspacing">{{ post.blog_title }}</h2>
+    <p class="blogspacing">{{post.body}}</p>
+{% endif %}
+{% endblock %}

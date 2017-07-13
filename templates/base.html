@@ -3,21 +3,28 @@
     <style>
         .error {
             color: red;
+            font-style: italic;
         }
+
+        html, body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Arial", sans-serif;
+            margin:10;
+            line-height: 100%;
+            }
+        
+        .blogspacing {
+        padding-top: 0px;
+        padding-right: 30px;
+        padding-bottom: 20px;
+        padding-left: 30px;
+        }
+        
     </style>
     <head>
         <title>{{title}}</title>
     </head>
     <body>
         <a href="/">Main Blog Page</a>&emsp;<a href="/newpost">Add a Blog Entry</a>
-
-        {% with messages = get_flashed_messages(with_categories=True) %}
-        <ul>
-            {% for category,message in messages %}
-            <li class="{{category}}">{{message}}</li>
-            {% endfor %}
-        {% endwith %}
-        </ul>
 
         {% block content %}
         {% endblock %}

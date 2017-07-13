@@ -5,16 +5,39 @@
         <form method='post'>
         <table>
             <tr>
-                <td><h3>Title:</h3></td>
+                <td><h3>Title:</h3>
+                {% with errors = get_flashed_messages(category_filter=["error_title"]) %}
+                {% if errors %}
+                <div class="error">
+                    {%- for msg in errors %}
+                    {{ msg }}
+                    {% endfor -%}
+                </div>
+                {% endif %}
+                {% endwith %}
+                </td>
             </tr>
             <tr>
-                <td><input type="text" name ='blog_title' id='blog_title'/></td>
+                <td><input type="text" name ='blog_title' id='blog_title' value=
+                "{{blog_title}}">
+                </td>
             </tr>
             <tr>
-                <td><h3>Your New Blog:</h3></td>
+                <td><h3>Your New Blog:</h3>
+                {% with errors = get_flashed_messages(category_filter=["error_body"]) %}
+                {% if errors %}
+                <div class="error">
+                    {%- for msg in errors %}
+                    {{ msg }}
+                    {% endfor -%}
+                </div>
+                {% endif %}
+                {% endwith %}
+                </td>
             <tr>
-                <td><textarea rows="10" cols="80" id="body" name="body" ></textarea></td>
-            </tr>
+                <td><textarea rows="10" cols="80" id="body" name="body">{{body}}</textarea></td>
+            </tr>                    
+            <input type="hidden" name="id" value="{{id}}"/>
         </table>
             <input type="submit" value='Add Entry'/>
         </form> 
