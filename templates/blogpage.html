@@ -7,4 +7,7 @@
     <h1 align="center" class="blogspacing">{{ post.blog_title }}</h2>
     <p class="blogspacing">{{post.body}}</p>
 {% endif %}
+
+<p class="smallfooter">written by <a href="/blogz?username={{user.username}}">{{user.username}}</a></p>
+
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Login</h2>
+<form action="/login" method="post">
+  <p><label>Username<input type="text" name="username"/></label></p>
+  <p><label>Password<input type="password" name="password"/></label></p>
+  <p><input type="submit" value="Login"/></p>
+
+    {% with errors = get_flashed_messages() %}
+    {% if errors %}
+    <div class="error">
+        {%- for msg in errors %}
+        {{ msg }}
+        {% endfor -%}
+    </div>
+    {% endif %}
+    {% endwith %}
+</form>
+
+<p>Don't have an account? <a href="signup">Create one!</a></p>
+{% endblock %}

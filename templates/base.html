@@ -19,13 +19,36 @@
         padding-left: 30px;
         }
         
+        .inline {
+            display:inline;
+            }
+
+        .bloglist {
+        margin-bottom: 5px;
+        margin-left:20px;
+
+        }
+
+        .smallfooter {
+            font-style: italic;
+            font-size: 14px;
+            color: orangered;
+        }
+
+        .userstyle {
+            font-style: italic;
+            font-style: bold;
+            color: darkolivegreen;
+        }
     </style>
     <head>
         <title>{{title}}</title>
     </head>
     <body>
-        <a href="/">Main Blog Page</a>&emsp;<a href="/newpost">Add a Blog Entry</a>
-
+        <p style="text-align:left;">
+            <a href="/">Home</a>&emsp;<a href="blogz">All Posts</a>&emsp;<a href="newpost">New Post</a>
+            <span style='float: right'>
+            <a href="login">Login Here</a> | <a href="signup">Signup</a>  | <a href="logout">Logout</a></span>
         {% block content %}
         {% endblock %}
 

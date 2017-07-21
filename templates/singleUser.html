@@ -1,12 +1,20 @@
+<!-- 
+    will be used to display only the blogs associated with a single given author.
+-->
+
 {% extends "base.html" %}
 
 
 {% block content %}
-<h1 align="center">{{title}}</h1>
+
+<h1 align="center">Blog Posts By:<span class="userstyle"> {{username.username}}</span></h1>
 
                 {% for post in posts %}
                 <h2 align="left" class="blogspacing"><a href="/blogz?id={{post.id}}">{{ post.blog_title }}</a></h2>
                 <p class="blogspacing">{{post.body}}</p>
                 <hr>
                 {% endfor %}
+
+<p class="smallfooter">written by <a href="/blogz?username={{username.username}}">{{username.username}}</a></p>
+
 {% endblock %}

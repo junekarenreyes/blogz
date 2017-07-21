@@ -1,0 +1,11 @@
+<!-- display a list of the usernames for all the authors on the site-->
+
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1 align="center" class="blogspacing">{{title}}</h1>
+                {% for user in users %}
+                <li align="left" class="bloglist"><a href="/blogz?username={{user.username}}">{{ user.username }}</a></li>
+                {% endfor %}
+{% endblock %}
