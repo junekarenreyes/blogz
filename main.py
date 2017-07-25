@@ -68,7 +68,8 @@ def login():
                 flash('password is incorrect')
         elif users.count() == 0:
                 flash('username does not exist')
-        return render_template('login.html')
+                username = ""
+        return render_template('login.html', username=username)
 
 @app.route("/signup", methods=['GET', 'POST'])
 def signup():
@@ -77,17 +78,26 @@ def signup():
         password = request.form['password']
         verify = request.form['verify']
         username_db_count = User.query.filter_by(username=username).count()
-        if username == "":
-            flash('please enter a username')
-        elif password == "":
-            flash('please enter a password')
-        elif len(password) < 4:
-            flash('password should be longer than 3 characters, please try again')
-        elif username_db_count > 0:
+        if username_db_count > 0:
             flash('yikes! "' + username + '" is already taken')
-        elif password != verify:
-            flash('passwords did not match')
-        else:
+        if not username:
+            if len(username) < 4:
+                flash('username should be longer than 4 characters')
+            else: 
+                flash('please enter a username')
+        elif len(username) < 4:
+            flash('username should be longer than 4 characters')
+        if not password:
+            if len(password) < 4:
+                flash('password should be longer than 3 characters, please try again')
+            else:
+                flash('please enter a password')
+        if password != verify:
+            if len(password) < 4:
+                flash('password should be longer than 3 characters')
+            else:
+                flash('passwords did not match')
+        if password == verify and len(username) > 4 and username_db_count < 0 and len(password) > 4:
             user = User(username=username, password=password)
             db.session.add(user)
             db.session.commit()

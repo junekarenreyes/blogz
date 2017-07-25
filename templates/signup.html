@@ -11,7 +11,7 @@
     {% if errors %}
     <div class="error">
         {%- for msg in errors %}
-        {{ msg }}
+        <ul>{{ msg }}</ul>
         {% endfor -%}
     </div>
     {% endif %}
